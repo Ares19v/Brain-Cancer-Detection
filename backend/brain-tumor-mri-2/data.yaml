@@ -1,0 +1,15 @@
+names:
+- Glioma
+- Meningioma
+- No Tumor
+- Pituitary
+nc: 4
+roboflow:
+  license: CC BY 4.0
+  project: brain-tumor-mri-ycidy
+  url: https://universe.roboflow.com/eksperiment/brain-tumor-mri-ycidy/dataset/2
+  version: 2
+  workspace: eksperiment
+test: ../test/images
+train: ../train/images
+val: ../valid/images

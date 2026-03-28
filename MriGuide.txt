@@ -1,0 +1,10 @@
+Backend 
+
+cd "/mnt/c/Users/Devansh Tyagi/Desktop/Projects/brain-cancer-detection/backend" && \./venv/bin/python3 main.py
+
+
+
+Frontend 
+
+cd "/mnt/c/Users/Devansh Tyagi/Desktop/Projects/brain-cancer-detection/frontend" && \
+npm run dev
