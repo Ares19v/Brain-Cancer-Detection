@@ -1,75 +1,60 @@
 @echo off
 setlocal EnableDelayedExpansion
-title NeuroScan AI — Installer
+title NeuroScan AI — One-Click Installer
 
 echo.
 echo  ================================================
-echo    NeuroScan AI ^| Installation Script
+echo    NeuroScan AI ^| One-Click Installer
 echo  ================================================
 echo.
+
+:: ── Try to find Conda ────────────────────────────────────────────────────────
+set CONDA_PATH=C:\Users\Devansh Tyagi\miniconda3
+if exist "!CONDA_PATH!\Scripts\conda.exe" (
+    echo [INFO] Conda detected. Activating 'ml' environment...
+    call "!CONDA_PATH!\Scripts\activate.bat" ml
+) else (
+    echo [WARNING] Conda not found at !CONDA_PATH!. Using system Python.
+)
 
 :: ── Check Python ─────────────────────────────────────────────────────────────
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo [ERROR] Python not found. Install Python 3.11+ from https://python.org
+    echo [ERROR] Python not found. Please install Python or Miniconda.
     pause
     exit /b 1
 )
-for /f "tokens=2" %%v in ('python --version 2^>^&1') do set PY_VER=%%v
-echo [OK] Python %PY_VER% found.
 
-:: ── Check Node ───────────────────────────────────────────────────────────────
-node --version >nul 2>&1
-if errorlevel 1 (
-    echo [ERROR] Node.js not found. Install Node.js 18+ from https://nodejs.org
-    pause
-    exit /b 1
-)
-for /f %%v in ('node --version') do set NODE_VER=%%v
-echo [OK] Node.js %NODE_VER% found.
-
-echo.
-echo [STEP 1/3] Setting up Python virtual environment...
+:: ── Clean up old blocked venv ────────────────────────────────────────────────
 if exist "backend\venv" (
-    echo         Removing existing venv...
+    echo [CLEAN] Removing old virtual environment folder...
     rmdir /s /q "backend\venv"
 )
-python -m venv backend\venv
-if errorlevel 1 ( echo [ERROR] venv creation failed. & pause & exit /b 1 )
-echo [OK] Virtual environment created.
 
 echo.
-echo [STEP 2/3] Installing Python dependencies...
-backend\venv\Scripts\pip install --upgrade pip -q
-backend\venv\Scripts\pip install -r backend\requirements.txt
-if errorlevel 1 ( echo [ERROR] pip install failed. & pause & exit /b 1 )
-echo [OK] Python dependencies installed.
+echo [STEP 1/2] Installing Python dependencies...
+python -m pip install -r backend\requirements.txt
+if errorlevel 1 (
+    echo [ERROR] Python installation failed.
+    pause
+    exit /b 1
+)
 
 echo.
-echo [STEP 3/3] Installing frontend dependencies...
-cd frontend
-call npm install
-if errorlevel 1 ( cd .. & echo [ERROR] npm install failed. & pause & exit /b 1 )
-cd ..
-echo [OK] Frontend dependencies installed.
+echo [STEP 2/2] Installing frontend dependencies...
+if not exist "frontend\node_modules" (
+    cd frontend
+    call npm install
+    if errorlevel 1 ( cd .. & echo [ERROR] npm install failed. & pause & exit /b 1 )
+    cd ..
+) else (
+    echo [SKIP] node_modules already exists.
+)
 
 echo.
 echo  ================================================
-
-:: ── Check weights ─────────────────────────────────────────────────────────────
-if exist "weights\efficientnet_b0.pth" (
-    echo [OK] Model weights found.
-) else (
-    echo.
-    echo [ACTION REQUIRED] Model weights are missing!
-    echo.
-    echo    weights\efficientnet_b0.pth was not found.
-    echo    Please download it from the link in README.md
-    echo    and place it in the weights\ directory.
-    echo.
-)
-
-echo  Installation complete! Run Run_Project.bat to start.
+echo  Installation complete! 
+echo  Now just double-click Run_Project.bat
 echo  ================================================
 echo.
 pause
