@@ -28,7 +28,7 @@ function App() {
     try {
       const response = await axios.post('http://localhost:8000/predict', formData);
       setResult(response.data);
-    } catch (error) {
+    } catch (_error) {
       alert("Backend Error: Ensure main.py is running on port 8000.");
     }
     setLoading(false);

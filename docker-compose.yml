@@ -1,0 +1,55 @@
+version: "3.9"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NeuroScan AI — Docker Compose
+#
+# Usage:
+#   docker compose up --build
+#
+# Prerequisites:
+#   - weights/efficientnet_b0.pth must exist on the host (see README for
+#     the download link).
+#
+# Services:
+#   backend   FastAPI inference server   → http://localhost:8000
+#   frontend  React/Vite via nginx       → http://localhost:3000
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: neuroscan-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount model weights from host (not baked into image)
+      - ./weights:/weights:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      start_period: 40s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: neuroscan-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+networks:
+  default:
+    name: neuroscan-network

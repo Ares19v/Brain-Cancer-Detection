@@ -1,6 +1,39 @@
-venv/
-.venv/
-runs/
+# --- Python ---
 __pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv
+env/
+build/
+dist/
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- AI / ML Data (CRITICAL) ---
+weights/*.pth
+weights/*.onnx
+datasets/
+outputs/
+*.mat
+*.zip
+
+# --- Node / Frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.eslintcache
+
+# --- Docker ---
+.dockerignore
+
+# --- OS / IDE ---
+.vscode/
+.idea/
 .DS_Store
-*.lnk
+Thumbs.db
+*.log
+*.tmp
+*.txt

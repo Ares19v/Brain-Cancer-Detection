@@ -1,0 +1,62 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            0s54b3s8j2bm1bkham50z20pgmapzljb:
+                codePath: scripts/train_ultimate.py
+                codePathLocal: scripts/train_ultimate.py
+                cpu_count: 12
+                cpu_count_logical: 24
+                cudaVersion: "13.1"
+                disk:
+                    /:
+                        total: "1081101176832"
+                        used: "77284171776"
+                email: devanshtyagi1903@gmail.com
+                executable: /mnt/c/Users/Devansh Tyagi/Desktop/Projects/brain-cancer-detection/backend/venv/bin/python3
+                gpu: NVIDIA GeForce RTX 5060 Laptop GPU
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      memoryTotal: "8546942976"
+                      name: NVIDIA GeForce RTX 5060 Laptop GPU
+                      uuid: GPU-c6f9764d-a1bf-de2b-f7f3-25259d551f84
+                host: Devanshs-Omen
+                memory:
+                    total: "12346085376"
+                os: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+                program: /mnt/c/Users/Devansh Tyagi/Desktop/Projects/brain-cancer-detection/scripts/train_ultimate.py
+                python: CPython 3.12.3
+                root: /mnt/c/Users/Devansh Tyagi/Desktop/Projects/brain-cancer-detection
+                startedAt: "2026-03-18T12:06:46.564046Z"
+                writerId: 0s54b3s8j2bm1bkham50z20pgmapzljb
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 1
+                - 41
+                - 49
+                - 63
+            "2":
+                - 1
+                - 41
+                - 49
+                - 63
+            "3":
+                - 13
+                - 16
+            "4": 3.12.3
+            "5": 0.25.1
+            "12": 0.25.1
+            "13": linux-x86_64
+architecture:
+    value: EfficientNet-B0
+batch_size:
+    value: 128
+device:
+    value: NVIDIA GeForce RTX 5060 Laptop GPU
+learning_rate:
+    value: 0.0001
+weighted_loss:
+    value: true
