@@ -8,7 +8,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 ![NeuroScan Demo](outputs/confusion_matrix.png)
 
@@ -169,6 +169,7 @@ Full interactive docs at **http://localhost:8000/docs**
 
 ---
 
-## License
-
-MIT © 2025 Devansh Tyagi — see [LICENSE](LICENSE)
+---
+<p align="center">
+  Made by Devansh Tyagi @ 2026
+</p>
