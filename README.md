@@ -104,11 +104,18 @@ npm run dev
 
 ## Model Weights
 
-The trained weights file (`weights/efficientnet_b0.pth`, ~16 MB) is not stored in git (binary files bloat repos). Download it here:
+The trained weights file (`weights/efficientnet_b0.pth`, ~16 MB) is hosted on Hugging Face:
 
-> **[⬇ Download efficientnet_b0.pth](https://drive.google.com/drive/folders/1yzZSk7LVJ3N-TbLGFDuQpPkDVV_r0tJE)**
+> **[⬇ Download efficientnet_b0.pth on Hugging Face](https://huggingface.co/devanshty/brain-cancer-detection/blob/main/efficientnet_b0.pth)**
 
-Place the file at: `weights/efficientnet_b0.pth`
+Or via Python:
+```python
+from huggingface_hub import hf_hub_download
+model_path = hf_hub_download(repo_id="devanshty/brain-cancer-detection", filename="efficientnet_b0.pth")
+```
+
+Place the downloaded file at: `weights/efficientnet_b0.pth`
+
 
 ---
 
