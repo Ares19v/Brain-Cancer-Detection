@@ -176,9 +176,7 @@ Full interactive docs at **http://localhost:8000/docs**
 
 ---
 
-<p align="center">
-  Made by Devansh Tyagi @ 2026
-</p>
+
 
 ## 🤗 Model on Hugging Face
 
