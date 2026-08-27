@@ -191,4 +191,4 @@ model_path = hf_hub_download(repo_id='devanshty/brain-cancer-detection', filenam
 
 ---
 
-© 2025 Devansh Tyagi (Ares19v). All Rights Reserved.
+© 2026 Devansh Tyagi (Ares19v). All Rights Reserved.
