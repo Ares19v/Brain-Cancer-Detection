@@ -176,7 +176,6 @@ Full interactive docs at **http://localhost:8000/docs**
 
 ---
 
----
 <p align="center">
   Made by Devansh Tyagi @ 2026
 </p>
@@ -191,3 +190,9 @@ The trained model is available on Hugging Face: [devanshty/brain-cancer-detectio
 from huggingface_hub import hf_hub_download
 model_path = hf_hub_download(repo_id='devanshty/brain-cancer-detection', filename='brain_model.pth')
 ```
+
+---
+
+© 2025 Devansh Tyagi (Ares19v). All Rights Reserved.
+
+Unauthorized copying, modification, distribution, or use of this project or any of its components, in whole or in part, without explicit written permission from the author is strictly prohibited.
