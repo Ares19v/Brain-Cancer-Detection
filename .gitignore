@@ -37,3 +37,7 @@ Thumbs.db
 *.log
 *.tmp
 *.txt
+
+# Weights & Biases
+wandb/
+*.wandb
